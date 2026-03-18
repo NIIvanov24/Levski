@@ -1,75 +1,53 @@
-
 #include <iostream>
 #include <vector>
 #include <string>
-
+#include <cstdlib>
+#include "Functions.h"
 #include "Question.h"
 #include "Test.h"
 using namespace std;
 
-//void showStudyMaterials(); - Трябва да се довърши!
-//void showExercises(); - Трябва да се довърши!
-//void startTest(); - Трябва да се довърши!
-//void showStatistics(); - Трябва да се довърши!
-
-
 int main()
+{
+    int choice;
+
+    do
     {
-        int choice;
+        system("cls");
+        cout << "==============================\n";
+        cout << "   ELECTRONIC SCHOOL SYSTEM   \n";
+        cout << "==============================\n\n";
+        cout << "  1. Study Materials\n";
+        cout << "  2. Exercises\n";
+        cout << "  3. Take Test\n";
+        cout << "  4. Statistics\n";
+        cout << "  5. Exit\n";
+        cout << "\n  Choice: ";
+        cin >> choice;
 
-        cout << "==============================" << endl;
-        cout << "   ELECTRONIC SCHOOL SYSTEM   " << endl;
-        cout << "==============================" << endl;
-
-        do
+        if (cin.fail())
         {
-            cout << "\nMAIN MENU\n";
-            cout << "1. Study Materials\n";
-            cout << "2. Exercises\n";
-            cout << "3. Take Test\n";
-            cout << "4. Statistics\n";
-            cout << "5. Exit\n";
+            cin.clear();
+            cin.ignore(1000, '\n');
+            continue;
+        }
 
-            cout << "\nEnter choice: ";
-            cin >> choice;
+        switch (choice)
+        {
+        case 1: showStudyMaterials(); break;
+        case 2: showExercises();      break;
+        case 3: startTest();          break;
+        case 4: showStatistics();     break;
+        case 5:
+            system("cls");
+            cout << "\n  Goodbye!\n\n";
+            break;
+        default:
+            cout << "\n  Invalid choice! Try again.\n";
+            break;
+        }
 
-            if (cin.fail())
-            {
-                cin.clear();
-                cin.ignore(1000, '\n');
-                cout << "Invalid input!\n";
-                continue;
-            }
+    } while (choice != 5);
 
-            switch (choice)
-            {
-            case 1:
-                //showStudyMaterials();
-                break;
-
-            case 2:
-                //showExercises();
-                break;
-
-            case 3:
-                //startTest();
-                break;
-
-            case 4:
-                //showStatistics();
-                break;
-
-            case 5:
-                cout << "Exiting program...\n";
-                break;
-
-            default:
-                cout << "Invalid choice!\n";
-            }
-
-        } while (choice != 5);
-
-        return 0;
-    }
-
-
+    return 0;
+}
