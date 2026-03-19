@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|solutionrelative:Levski\\Functions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|C:\\Users\\Ina\\Desktop\\Levski cpp\\Levski\\Levski\\Levski\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|solutionrelative:Levski\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|C:\\Users\\Ina\\Desktop\\Levski cpp\\Levski\\Levski\\Levski\\Test.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|solutionrelative:Levski\\Test.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|C:\\Users\\Ina\\Desktop\\Levski cpp\\Levski\\Levski\\Levski\\Question.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|solutionrelative:Levski\\Question.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|C:\\Users\\Ina\\Desktop\\Levski cpp\\Levski\\Levski\\Levski\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|solutionrelative:Levski\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -44,14 +44,14 @@
               "RelativeDocumentMoniker": "Levski\\Functions.h",
               "ToolTip": "C:\\Users\\Ina\\Desktop\\Levski cpp\\Levski\\Levski\\Levski\\Functions.h",
               "RelativeToolTip": "Levski\\Functions.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHkBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAFEAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-03-18T22:22:23.22Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Test.h",
               "DocumentMoniker": "C:\\Users\\Ina\\Desktop\\Levski cpp\\Levski\\Levski\\Levski\\Test.h",
               "RelativeDocumentMoniker": "Levski\\Test.h",
@@ -59,12 +59,11 @@
               "RelativeToolTip": "Levski\\Test.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-03-18T22:22:23.343Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-18T22:22:23.343Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Question.h",
               "DocumentMoniker": "C:\\Users\\Ina\\Desktop\\Levski cpp\\Levski\\Levski\\Levski\\Question.h",
               "RelativeDocumentMoniker": "Levski\\Question.h",
@@ -72,12 +71,11 @@
               "RelativeToolTip": "Levski\\Question.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-03-18T22:22:23.344Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-18T22:22:23.344Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Main.cpp",
               "DocumentMoniker": "C:\\Users\\Ina\\Desktop\\Levski cpp\\Levski\\Levski\\Levski\\Main.cpp",
               "RelativeDocumentMoniker": "Levski\\Main.cpp",
