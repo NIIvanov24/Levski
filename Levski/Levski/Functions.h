@@ -1,7 +1,7 @@
 #pragma once
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
-//functions.h
+
 #include <vector>
 #include <iostream>
 #include <string>
@@ -79,22 +79,22 @@ void showStudyMaterials()
             cout << "           ENGLISH            \n";
             cout << "==============================\n\n";
             cout << "  VERB TENSES\n";
-            cout << "  ─────────────────────────────\n";
+            cout << "  ==============================\n";
             cout << "  Present Simple : He GOES to school\n";
             cout << "  Past Simple    : He WENT to school\n";
             cout << "  Present Cont.  : He IS GOING to school\n\n";
             cout << "  VERB 'to be'\n";
-            cout << "  ─────────────────────────────\n";
+            cout << "  ==============================\n";
             cout << "  I am  / You are / He-She-It is\n";
             cout << "  We are / They are\n\n";
             cout << "  IRREGULAR VERBS\n";
-            cout << "  ─────────────────────────────\n";
+            cout << "  ==============================\n";
             cout << "  go  -> went  -> gone\n";
             cout << "  eat -> ate   -> eaten\n";
             cout << "  run -> ran   -> run\n";
             cout << "  see -> saw   -> seen\n\n";
             cout << "  SYNONYMS / ANTONYMS\n";
-            cout << "  ─────────────────────────────\n";
+            cout << "  ==============================\n";
             cout << "  big = large  |  big  <-> small\n";
             cout << "  fast = quick |  hot  <-> cold\n";
             pauseScreen();
@@ -105,7 +105,7 @@ void showStudyMaterials()
             cout << "          CHEMISTRY           \n";
             cout << "==============================\n\n";
             cout << "  IMPORTANT CHEMICAL FORMULAS\n";
-            cout << "  ─────────────────────────────\n";
+            cout << "  ==============================\n";
             cout << "  H2O  - Water\n";
             cout << "  NaCl - Table Salt\n";
             cout << "  CO2  - Carbon Dioxide\n";
@@ -116,12 +116,12 @@ void showStudyMaterials()
             cout << "  CH4  - Methane\n";
             cout << "  O3   - Ozone\n\n";
             cout << "  pH SCALE\n";
-            cout << "  ─────────────────────────────\n";
+            cout << "  ==============================\n";
             cout << "  0-6  : Acid\n";
             cout << "  7    : Neutral (water)\n";
             cout << "  8-14 : Base\n\n";
             cout << "  CHEMICAL SYMBOLS\n";
-            cout << "  ─────────────────────────────\n";
+            cout << "  ==============================\n";
             cout << "  H=Hydrogen  O=Oxygen\n";
             cout << "  C=Carbon    N=Nitrogen  Na=Sodium\n";
             pauseScreen();
@@ -161,27 +161,27 @@ void showExercises()
 
         if (subChoice == 1)
         {
-            exercises.push_back(make_pair(string("What is 8 * 7?"),          string("56")));
-            exercises.push_back(make_pair(string("What is 15 - 6?"),         string("9")));
-            exercises.push_back(make_pair(string("Square root of 25?"),      string("5")));
-            exercises.push_back(make_pair(string("What is 100 / 4?"),        string("25")));
-            exercises.push_back(make_pair(string("What is 3^3?"),            string("27")));
+            exercises.push_back(make_pair(string("What is 8 * 7?"), string("56")));
+            exercises.push_back(make_pair(string("What is 15 - 6?"), string("9")));
+            exercises.push_back(make_pair(string("Square root of 25?"), string("5")));
+            exercises.push_back(make_pair(string("What is 100 / 4?"), string("25")));
+            exercises.push_back(make_pair(string("What is 3^3?"), string("27")));
         }
         else if (subChoice == 2)
         {
-            exercises.push_back(make_pair(string("Past tense of 'go'?"),          string("went")));
-            exercises.push_back(make_pair(string("Plural of 'child'?"),           string("children")));
-            exercises.push_back(make_pair(string("Synonym of 'big'?"),            string("large")));
-            exercises.push_back(make_pair(string("Antonym of 'hot'?"),            string("cold")));
-            exercises.push_back(make_pair(string("Past tense of 'eat'?"),         string("ate")));
+            exercises.push_back(make_pair(string("Past tense of 'go'?"), string("went")));
+            exercises.push_back(make_pair(string("Plural of 'child'?"), string("children")));
+            exercises.push_back(make_pair(string("Synonym of 'big'?"), string("large")));
+            exercises.push_back(make_pair(string("Antonym of 'hot'?"), string("cold")));
+            exercises.push_back(make_pair(string("Past tense of 'eat'?"), string("ate")));
         }
         else if (subChoice == 3)
         {
-            exercises.push_back(make_pair(string("Chemical formula of water?"),        string("H2O")));
-            exercises.push_back(make_pair(string("Chemical formula of salt?"),         string("NaCl")));
-            exercises.push_back(make_pair(string("What is the pH of pure water?"),     string("7")));
-            exercises.push_back(make_pair(string("What gas do plants produce?"),       string("O2")));
-            exercises.push_back(make_pair(string("Chemical formula of ammonia?"),      string("NH3")));
+            exercises.push_back(make_pair(string("Chemical formula of water?"), string("H2O")));
+            exercises.push_back(make_pair(string("Chemical formula of salt?"), string("NaCl")));
+            exercises.push_back(make_pair(string("What is the pH of pure water?"), string("7")));
+            exercises.push_back(make_pair(string("What gas do plants produce?"), string("O2")));
+            exercises.push_back(make_pair(string("Chemical formula of ammonia?"), string("NH3")));
         }
 
         int correct = 0;
@@ -189,7 +189,7 @@ void showExercises()
         {
             system("cls");
             string question = exercises[i].first;
-            string answer   = exercises[i].second;
+            string answer = exercises[i].second;
 
             cout << "==============================\n";
             cout << "  Exercise " << (i + 1) << " of " << exercises.size() << "\n";
@@ -200,9 +200,9 @@ void showExercises()
             string userAnswer;
             cin >> userAnswer;
 
-            string ua  = userAnswer;
+            string ua = userAnswer;
             string ans = answer;
-            for (int k = 0; k < (int)ua.size();  k++) ua[k]  = (char)tolower((unsigned char)ua[k]);
+            for (int k = 0; k < (int)ua.size(); k++) ua[k] = (char)tolower((unsigned char)ua[k]);
             for (int k = 0; k < (int)ans.size(); k++) ans[k] = (char)tolower((unsigned char)ans[k]);
 
             system("cls");
@@ -267,20 +267,20 @@ void startTest()
     test.loadQuestions();
     test.generateTest();
 
-    int score    = test.startTest();
+    int score = test.startTest();
     int maxScore = test.getMaxScore();
 
     double percent = (maxScore > 0) ? ((double)score / (double)maxScore) * 100.0 : 0.0;
 
     int grade;
-    if      (percent >= 90) grade = 6;
+    if (percent >= 90) grade = 6;
     else if (percent >= 75) grade = 5;
     else if (percent >= 60) grade = 4;
     else if (percent >= 45) grade = 3;
     else                    grade = 2;
 
     string stars;
-    if      (grade == 6) stars = "[******]";
+    if (grade == 6) stars = "[******]";
     else if (grade == 5) stars = "[*****-]";
     else if (grade == 4) stars = "[****--]";
     else if (grade == 3) stars = "[***---]";
@@ -290,12 +290,12 @@ void startTest()
     cout << "==============================\n";
     cout << "           RESULT             \n";
     cout << "==============================\n\n";
-    cout << "  Student    : " << name    << "\n";
-    cout << "  Points     : " << score   << " / " << maxScore << "\n";
+    cout << "  Student    : " << name << "\n";
+    cout << "  Points     : " << score << " / " << maxScore << "\n";
     cout << "  Percentage : " << fixed << setprecision(1) << percent << "%\n";
-    cout << "  Grade      : " << grade   << "  " << stars << "\n\n";
+    cout << "  Grade      : " << grade << "  " << stars << "\n\n";
 
-    if      (grade == 6) cout << "  Excellent result! Well done!\n";
+    if (grade == 6) cout << "  Excellent result! Well done!\n";
     else if (grade == 5) cout << "  Very good! Keep it up!\n";
     else if (grade == 4) cout << "  Good! You can do better!\n";
     else if (grade == 3) cout << "  Poor. Review the material!\n";
@@ -345,7 +345,7 @@ void showStatistics()
     int g2 = 0, g3 = 0, g4 = 0, g5 = 0, g6 = 0;
     for (int i = 0; i < (int)allGrades.size(); i++)
     {
-        if      (allGrades[i] == 2) g2++;
+        if (allGrades[i] == 2) g2++;
         else if (allGrades[i] == 3) g3++;
         else if (allGrades[i] == 4) g4++;
         else if (allGrades[i] == 5) g5++;
@@ -364,11 +364,11 @@ void showStatistics()
             ? ((double)allScores[i] / (double)allMaxScores[i]) * 100.0
             : 0.0;
         cout << "  " << setw(2) << (i + 1) << ". "
-             << left  << setw(15) << allNames[i]
-             << right << setw(4)  << allScores[i]
-             << "/" << allMaxScores[i]
-             << "  (" << fixed << setprecision(0) << pct << "%)"
-             << "  Grade: " << allGrades[i] << "\n";
+            << left << setw(15) << allNames[i]
+            << right << setw(4) << allScores[i]
+            << "/" << allMaxScores[i]
+            << "  (" << fixed << setprecision(0) << pct << "%)"
+            << "  Grade: " << allGrades[i] << "\n";
     }
 
     pauseScreen();
