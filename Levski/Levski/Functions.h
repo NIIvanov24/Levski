@@ -18,6 +18,7 @@ vector<int>    allGrades;
 vector<int>    allMaxScores;
 
 
+// Waits for the user to press ENTER.
 void pauseScreen()
 {
     cout << "\n  Press ENTER to return to the menu...";
@@ -26,6 +27,7 @@ void pauseScreen()
 }
 
 
+// Shows study materials for Math, English, and Chemistry.
 void showStudyMaterials()
 {
     int subChoice;
@@ -131,6 +133,7 @@ void showStudyMaterials()
 }
 
 
+// Shows practice exercises and checks the answers.
 void showExercises()
 {
     int subChoice;
@@ -239,6 +242,7 @@ void showExercises()
 }
 
 
+// Starts a test and shows the result.
 void startTest()
 {
     system("cls");
@@ -310,6 +314,7 @@ void startTest()
 }
 
 
+// Shows all saved test statistics.
 void showStatistics()
 {
     system("cls");
