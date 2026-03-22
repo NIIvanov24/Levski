@@ -312,3 +312,273 @@ C: Salt
 D: Oxygen
 ANSWER: B
 POINTS: 3
+
+QUESTION: What is the basic unit of life?
+CATEGORY: Biology
+A: Atom
+B: Molecule
+C: Cell
+D: Tissue
+ANSWER: C
+POINTS: 2
+
+QUESTION: How many chambers does the human heart have?
+CATEGORY: Biology
+A: 2
+B: 3
+C: 4
+D: 5
+ANSWER: C
+POINTS: 2
+
+QUESTION: What is the process by which plants make food?
+CATEGORY: Biology
+A: Respiration
+B: Photosynthesis
+C: Digestion
+D: Osmosis
+ANSWER: B
+POINTS: 3
+
+QUESTION: What gas do humans exhale?
+CATEGORY: Biology
+A: O2
+B: N2
+C: CO2
+D: H2
+ANSWER: C
+POINTS: 2
+
+QUESTION: How many bones are in the adult human body?
+CATEGORY: Biology
+A: 150
+B: 206
+C: 300
+D: 256
+ANSWER: B
+POINTS: 3
+
+QUESTION: What carries oxygen in the blood?
+CATEGORY: Biology
+A: White blood cells
+B: Plasma
+C: Platelets
+D: Red blood cells
+ANSWER: D
+POINTS: 2
+
+QUESTION: What is the powerhouse of the cell?
+CATEGORY: Biology
+A: Nucleus
+B: Ribosome
+C: Mitochondria
+D: Vacuole
+ANSWER: C
+POINTS: 3
+
+QUESTION: How many chromosomes does a human cell have?
+CATEGORY: Biology
+A: 23
+B: 46
+C: 48
+D: 64
+ANSWER: B
+POINTS: 3
+
+QUESTION: What organ pumps blood through the body?
+CATEGORY: Biology
+A: Lungs
+B: Liver
+C: Kidney
+D: Heart
+ANSWER: D
+POINTS: 2
+
+QUESTION: What is DNA short for?
+CATEGORY: Biology
+A: Deoxyribose Nucleic Acid
+B: Digital Nucleic Array
+C: Deoxyribonucleic Acid
+D: Double Nucleic Acid
+ANSWER: C
+POINTS: 3
+
+QUESTION: What is the unit of force?
+CATEGORY: Physics
+A: Watt
+B: Joule
+C: Newton
+D: Pascal
+ANSWER: C
+POINTS: 2
+
+QUESTION: What is the speed of light in vacuum?
+CATEGORY: Physics
+A: 300 000 km/s
+B: 150 000 km/s
+C: 200 000 km/s
+D: 400 000 km/s
+ANSWER: A
+POINTS: 3
+
+QUESTION: What is the unit of electric current?
+CATEGORY: Physics
+A: Volt
+B: Ampere
+C: Ohm
+D: Watt
+ANSWER: B
+POINTS: 2
+
+QUESTION: What does Newton's first law state?
+CATEGORY: Physics
+A: F = m * a
+B: Every action has a reaction
+C: An object stays at rest unless a force acts on it
+D: Energy cannot be created
+ANSWER: C
+POINTS: 3
+
+QUESTION: What is the formula for speed?
+CATEGORY: Physics
+A: s = m / t
+B: s = d / t
+C: s = d * t
+D: s = f * t
+ANSWER: B
+POINTS: 2
+
+QUESTION: What is the unit of electrical resistance?
+CATEGORY: Physics
+A: Ampere
+B: Volt
+C: Ohm
+D: Farad
+ANSWER: C
+POINTS: 2
+
+QUESTION: What type of energy does a moving object have?
+CATEGORY: Physics
+A: Potential energy
+B: Chemical energy
+C: Thermal energy
+D: Kinetic energy
+ANSWER: D
+POINTS: 2
+
+QUESTION: What is the boiling point of water at standard pressure?
+CATEGORY: Physics
+A: 90 degrees C
+B: 100 degrees C
+C: 110 degrees C
+D: 120 degrees C
+ANSWER: B
+POINTS: 2
+
+QUESTION: What is the unit of power?
+CATEGORY: Physics
+A: Joule
+B: Newton
+C: Watt
+D: Pascal
+ANSWER: C
+POINTS: 2
+
+QUESTION: What force keeps planets in orbit around the Sun?
+CATEGORY: Physics
+A: Magnetic force
+B: Nuclear force
+C: Gravity
+D: Electric force
+ANSWER: C
+POINTS: 3
+
+QUESTION: What symbol is used to start a C++ program execution?
+CATEGORY: C++ Programming
+A: start()
+B: begin()
+C: main()
+D: run()
+ANSWER: C
+POINTS: 2
+
+QUESTION: Which header is needed for cout in C++?
+CATEGORY: C++ Programming
+A: stdio.h
+B: iostream
+C: conio.h
+D: stdlib.h
+ANSWER: B
+POINTS: 2
+
+QUESTION: What is the correct way to declare an integer variable x with value 5?
+CATEGORY: C++ Programming
+A: int x == 5;
+B: x = 5;
+C: int x = 5;
+D: integer x = 5;
+ANSWER: C
+POINTS: 2
+
+QUESTION: What does cout << do in C++?
+CATEGORY: C++ Programming
+A: Reads input from keyboard
+B: Prints output to screen
+C: Declares a variable
+D: Ends the program
+ANSWER: B
+POINTS: 2
+
+QUESTION: Which loop runs at least once regardless of the condition?
+CATEGORY: C++ Programming
+A: for loop
+B: while loop
+C: do-while loop
+D: foreach loop
+ANSWER: C
+POINTS: 3
+
+QUESTION: What is the correct syntax for a single-line comment in C++?
+CATEGORY: C++ Programming
+A: /* comment */
+B: # comment
+C: -- comment
+D: // comment
+ANSWER: D
+POINTS: 2
+
+QUESTION: What does the return 0; statement mean in main()?
+CATEGORY: C++ Programming
+A: The program crashed
+B: The program ended with an error
+C: The program ended successfully
+D: The program restarts
+ANSWER: C
+POINTS: 2
+
+QUESTION: Which keyword is used to define a class in C++?
+CATEGORY: C++ Programming
+A: object
+B: struct
+C: class
+D: type
+ANSWER: C
+POINTS: 3
+
+QUESTION: What is the size of an int in C++ (typically)?
+CATEGORY: C++ Programming
+A: 1 byte
+B: 2 bytes
+C: 4 bytes
+D: 8 bytes
+ANSWER: C
+POINTS: 3
+
+QUESTION: Which operator is used to access a member of a pointer to a class?
+CATEGORY: C++ Programming
+A: .
+B: ::
+C: ->
+D: >>
+ANSWER: C
+POINTS: 3

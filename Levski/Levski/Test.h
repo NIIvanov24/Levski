@@ -11,6 +11,24 @@
 #include <cctype>
 #include <cstdlib>
 #include "Question.h"
+//Basic colors for regular text
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define WHITE   "\033[37m"
+
+//More bright colors for headings and important info
+#define BRED     "\033[91m"
+#define BGREEN   "\033[92m"
+#define BYELLOW  "\033[93m"
+#define BBLUE    "\033[94m"
+#define BMAGENTA "\033[95m"
+#define BCYAN    "\033[96m"
+#define BWHITE   "\033[97m"
 
 using namespace std;
 

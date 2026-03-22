@@ -16,7 +16,24 @@ vector<int>    allScores;
 vector<string> allNames;
 vector<int>    allGrades;
 vector<int>    allMaxScores;
+//Basic colors for regular text
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define WHITE   "\033[37m"
 
+//More bright colors for headings and important info
+#define BRED     "\033[91m"
+#define BGREEN   "\033[92m"
+#define BYELLOW  "\033[93m"
+#define BBLUE    "\033[94m"
+#define BMAGENTA "\033[95m"
+#define BCYAN    "\033[96m"
+#define BWHITE   "\033[97m"
 
 void pauseScreen()
 {
@@ -32,14 +49,17 @@ void showStudyMaterials()
     do
     {
         system("cls");
-        cout << "==============================\n";
-        cout << "       STUDY MATERIALS        \n";
-        cout << "==============================\n\n";
-        cout << "  1. Mathematics\n";
-        cout << "  2. English\n";
-        cout << "  3. Chemistry\n";
-        cout << "  4. Back\n\n";
-        cout << "  Choice: ";
+        cout << BBLUE <<"==============================\n";
+        cout << BGREEN <<"       STUDY MATERIALS        \n";
+        cout << BBLUE <<"==============================\n\n";
+        cout << BGREEN << "  1. Mathematics\n";
+        cout << BGREEN << "  2. English\n";
+        cout << BGREEN << "  3. Chemistry\n";
+        cout << BGREEN << "  4. Biology\n";
+        cout << BGREEN << "  5. Physics\n";
+        cout << BGREEN << "  6. C++ Programming\n";
+        cout << BRED <<"  7. Back\n\n";
+        cout << BYELLOW <<"  Choice: ";
         cin >> subChoice;
 
         if (cin.fail())
@@ -126,8 +146,107 @@ void showStudyMaterials()
             cout << "  C=Carbon    N=Nitrogen  Na=Sodium\n";
             pauseScreen();
         }
+        else if (subChoice == 4)
+        {
+            cout << "==============================\n";
+            cout << "           BIOLOGY            \n";
+            cout << "==============================\n\n";
+            cout << "  THE CELL\n";
+            cout << "  ==============================\n";
+            cout << "  - Basic unit of life: CELL\n";
+            cout << "  - Nucleus     : controls cell activity\n";
+            cout << "  - Mitochondria: produces energy (ATP)\n";
+            cout << "  - Ribosome    : produces proteins\n";
+            cout << "  - Vacuole     : stores water/waste\n\n";
+            cout << "  THE HUMAN BODY\n";
+            cout << "  ==============================\n";
+            cout << "  - Heart       : 4 chambers, pumps blood\n";
+            cout << "  - Lungs       : gas exchange (O2 / CO2)\n";
+            cout << "  - Bones       : 206 in adult human body\n";
+            cout << "  - Red blood cells : carry oxygen\n";
+            cout << "  - White blood cells: fight infections\n\n";
+            cout << "  PHOTOSYNTHESIS\n";
+            cout << "  ==============================\n";
+            cout << "  CO2 + H2O + light -> O2 + glucose\n\n";
+            cout << "  GENETICS\n";
+            cout << "  ==============================\n";
+            cout << "  - DNA = Deoxyribonucleic Acid\n";
+            cout << "  - Human cells have 46 chromosomes\n";
+            cout << "  - Genes carry hereditary information\n";
+            pauseScreen();
+        }
+        else if (subChoice == 5)
+        {
+            cout << "==============================\n";
+            cout << "           PHYSICS            \n";
+            cout << "==============================\n\n";
+            cout << "  UNITS OF MEASUREMENT\n";
+            cout << "  ==============================\n";
+            cout << "  Force    : Newton  (N)\n";
+            cout << "  Energy   : Joule   (J)\n";
+            cout << "  Power    : Watt    (W)\n";
+            cout << "  Current  : Ampere  (A)\n";
+            cout << "  Voltage  : Volt    (V)\n";
+            cout << "  Resistance: Ohm   (Ohm)\n\n";
+            cout << "  NEWTON'S LAWS\n";
+            cout << "  ==============================\n";
+            cout << "  1st: Object stays at rest unless acted upon\n";
+            cout << "  2nd: F = m * a\n";
+            cout << "  3rd: Every action has an equal reaction\n\n";
+            cout << "  IMPORTANT FACTS\n";
+            cout << "  ==============================\n";
+            cout << "  Speed of light : 300 000 km/s\n";
+            cout << "  Speed formula  : s = d / t\n";
+            cout << "  Boiling point of water: 100 degrees C\n";
+            cout << "  Freezing point of water: 0 degrees C\n";
+            cout << "  Gravity on Earth: 9.8 m/s^2\n\n";
+            cout << "  ENERGY TYPES\n";
+            cout << "  ==============================\n";
+            cout << "  Kinetic  : energy of moving objects\n";
+            cout << "  Potential: stored energy (height)\n";
+            pauseScreen();
+        }
+        else if (subChoice == 6)
+        {
+            cout << "==============================\n";
+            cout << "       C++ PROGRAMMING        \n";
+            cout << "==============================\n\n";
+            cout << "  BASIC STRUCTURE\n";
+            cout << "  ==============================\n";
+            cout << "  #include <iostream>\n";
+            cout << "  using namespace std;\n";
+            cout << "  int main() {\n";
+            cout << "      cout << \"Hello World\";\n";
+            cout << "      return 0;\n";
+            cout << "  }\n\n";
+            cout << "  DATA TYPES\n";
+            cout << "  ==============================\n";
+            cout << "  int    : integer (4 bytes)\n";
+            cout << "  double : decimal number\n";
+            cout << "  char   : single character\n";
+            cout << "  string : text\n";
+            cout << "  bool   : true / false\n\n";
+            cout << "  CONTROL STRUCTURES\n";
+            cout << "  ==============================\n";
+            cout << "  if / else if / else\n";
+            cout << "  for (int i=0; i<n; i++)\n";
+            cout << "  while (condition)\n";
+            cout << "  do { ... } while (condition);\n\n";
+            cout << "  COMMENTS\n";
+            cout << "  ==============================\n";
+            cout << "  // Single-line comment\n";
+            cout << "  /* Multi-line comment */\n\n";
+            cout << "  CLASSES\n";
+            cout << "  ==============================\n";
+            cout << "  class MyClass {\n";
+            cout << "  public:\n";
+            cout << "      int x;\n";
+            cout << "  };\n";
+            cout << "  Pointer member access: ptr->member\n";
+            pauseScreen();
+        }
 
-    } while (subChoice != 4);
+    } while (subChoice != 7);
 }
 
 
@@ -143,7 +262,10 @@ void showExercises()
         cout << "  1. Mathematics\n";
         cout << "  2. English\n";
         cout << "  3. Chemistry\n";
-        cout << "  4. Back\n\n";
+        cout << "  4. Biology\n";
+        cout << "  5. Physics\n";
+        cout << "  6. C++ Programming\n";
+        cout << "  7. Back\n\n";
         cout << "  Choice: ";
         cin >> subChoice;
 
@@ -154,8 +276,8 @@ void showExercises()
             continue;
         }
 
-        if (subChoice < 1 || subChoice > 4) continue;
-        if (subChoice == 4) break;
+        if (subChoice < 1 || subChoice > 7) continue;
+        if (subChoice == 7) break;
 
         vector<pair<string, string>> exercises;
 
@@ -182,6 +304,30 @@ void showExercises()
             exercises.push_back(make_pair(string("What is the pH of pure water?"), string("7")));
             exercises.push_back(make_pair(string("What gas do plants produce?"), string("O2")));
             exercises.push_back(make_pair(string("Chemical formula of ammonia?"), string("NH3")));
+        }
+        else if (subChoice == 4)
+        {
+            exercises.push_back(make_pair(string("What is the basic unit of life?"), string("cell")));
+            exercises.push_back(make_pair(string("How many chambers does the heart have?"), string("4")));
+            exercises.push_back(make_pair(string("How many bones in the adult human body?"), string("206")));
+            exercises.push_back(make_pair(string("What is the powerhouse of the cell?"), string("mitochondria")));
+            exercises.push_back(make_pair(string("How many chromosomes do human cells have?"), string("46")));
+        }
+        else if (subChoice == 5)
+        {
+            exercises.push_back(make_pair(string("What is the unit of force?"), string("newton")));
+            exercises.push_back(make_pair(string("What is the speed of light? (km/s)"), string("300000")));
+            exercises.push_back(make_pair(string("What is the unit of electric current?"), string("ampere")));
+            exercises.push_back(make_pair(string("What is the boiling point of water? (C)"), string("100")));
+            exercises.push_back(make_pair(string("What is the unit of power?"), string("watt")));
+        }
+        else if (subChoice == 6)
+        {
+            exercises.push_back(make_pair(string("Which function starts a C++ program?"), string("main")));
+            exercises.push_back(make_pair(string("Which header is needed for cout?"), string("iostream")));
+            exercises.push_back(make_pair(string("What symbol starts a single-line comment?"), string("//")));
+            exercises.push_back(make_pair(string("What keyword defines a class in C++?"), string("class")));
+            exercises.push_back(make_pair(string("What operator accesses a member via pointer?"), string("->")));
         }
 
         int correct = 0;
@@ -235,7 +381,7 @@ void showExercises()
 
         pauseScreen();
 
-    } while (subChoice != 4);
+    } while (subChoice != 7);
 }
 
 
