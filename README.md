@@ -1,4 +1,4 @@
-# 📘 Electronic School System (C++ Console Application)
+# 📘 Electronic School System (C++ Console Application
 
 ## 📖 Overview
 
