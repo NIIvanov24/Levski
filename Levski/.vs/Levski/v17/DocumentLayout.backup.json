@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|solutionrelative:Levski\\Question.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|C:\\Users\\niki1\\source\\repos\\levski\\Levski\\Levski\\Levski\\Test.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|solutionrelative:Levski\\Test.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|C:\\Users\\niki1\\source\\repos\\levski\\Levski\\Levski\\Levski\\Functions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|solutionrelative:Levski\\Functions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|C:\\Users\\niki1\\source\\repos\\levski\\Levski\\Levski\\Levski\\Test.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B573B262-4E60-490D-BDD7-DD50458CDD4A}|Levski\\Levski.vcxproj|solutionrelative:Levski\\Test.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,29 +30,28 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Functions.h",
               "DocumentMoniker": "C:\\Users\\niki1\\source\\repos\\levski\\Levski\\Levski\\Levski\\Functions.h",
               "RelativeDocumentMoniker": "Levski\\Functions.h",
               "ToolTip": "C:\\Users\\niki1\\source\\repos\\levski\\Levski\\Levski\\Levski\\Functions.h",
               "RelativeToolTip": "Levski\\Functions.h",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAswBwAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-03-18T19:50:43.655Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Test.h",
               "DocumentMoniker": "C:\\Users\\niki1\\source\\repos\\levski\\Levski\\Levski\\Levski\\Test.h",
               "RelativeDocumentMoniker": "Levski\\Test.h",
-              "ToolTip": "C:\\Users\\niki1\\source\\repos\\levski\\Levski\\Levski\\Levski\\Test.h*",
-              "RelativeToolTip": "Levski\\Test.h*",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAswBcAAAA0AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\niki1\\source\\repos\\levski\\Levski\\Levski\\Levski\\Test.h",
+              "RelativeToolTip": "Levski\\Test.h",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAswGEAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-03-15T09:20:12.762Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-15T09:20:12.762Z"
             },
             {
               "$type": "Document",
@@ -60,9 +59,9 @@
               "Title": "Question.h",
               "DocumentMoniker": "C:\\Users\\niki1\\source\\repos\\levski\\Levski\\Levski\\Levski\\Question.h",
               "RelativeDocumentMoniker": "Levski\\Question.h",
-              "ToolTip": "C:\\Users\\niki1\\source\\repos\\levski\\Levski\\Levski\\Levski\\Question.h*",
-              "RelativeToolTip": "Levski\\Question.h*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA0AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\niki1\\source\\repos\\levski\\Levski\\Levski\\Levski\\Question.h",
+              "RelativeToolTip": "Levski\\Question.h",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-03-15T09:19:33.792Z",
               "EditorCaption": ""
@@ -73,9 +72,9 @@
               "Title": "Main.cpp",
               "DocumentMoniker": "C:\\Users\\niki1\\source\\repos\\levski\\Levski\\Levski\\Levski\\Main.cpp",
               "RelativeDocumentMoniker": "Levski\\Main.cpp",
-              "ToolTip": "C:\\Users\\niki1\\source\\repos\\levski\\Levski\\Levski\\Levski\\Main.cpp*",
-              "RelativeToolTip": "Levski\\Main.cpp*",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAEMAAAAfAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\niki1\\source\\repos\\levski\\Levski\\Levski\\Levski\\Main.cpp",
+              "RelativeToolTip": "Levski\\Main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-03-15T09:15:42.035Z",
               "EditorCaption": ""
