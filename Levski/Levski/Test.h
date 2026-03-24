@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifndef TEST_H
 #define TEST_H
 //test.h
@@ -46,8 +46,8 @@ public:
 
         if (!file.is_open())
         {
-            cout << "  [ERROR] File questions.txt not found!\n";
-            cout << "  Make sure the file is in the program folder.\n";
+            cout << BRED << "  [ERROR] File questions.txt not found!\n" << RESET;
+            cout << BYELLOW << "  Make sure the file is in the program folder.\n" << RESET;
             system("pause");
             return;
         }
@@ -100,6 +100,7 @@ public:
             testQuestions.push_back(questionBank[i]);
     }
 
+    // Returns -1 if the user typed '0' to exit early, otherwise returns the score.
     int startTest()
     {
         int score = 0;
@@ -110,39 +111,50 @@ public:
             system("cls");
 
             // Progress bar
-            cout << "\n  [";
+            cout << "\n  " << BBLUE << "[";
             int filled = (int)(((double)i / total) * 20);
             for (int p = 0; p < 20; p++)
-                cout << (p < filled ? "=" : " ");
-            cout << "]  " << i << "/" << total << " questions\n\n";
+                cout << (p < filled ? BGREEN "=" : " ");
+            cout << BBLUE << "]" << RESET;
+            cout << BYELLOW << "  " << i << "/" << total << " questions\n\n" << RESET;
 
             testQuestions[i].displayQuestion(i + 1, total);
 
-            char answer;
-            cout << "  Your answer (A/B/C/D): ";
-            cin >> answer;
-            answer = toupper(answer);
+            // Back hint
+            cout << BRED << "  Type '0' to quit the test.\n" << RESET;
+            cout << BCYAN << "  Your answer (A/B/C/D): " << RESET;
+
+            string inputStr;
+            cin >> inputStr;
+
+            // ← Check for back command
+            if (inputStr == "0")
+                return -1;
+
+            char answer = toupper((unsigned char)inputStr[0]);
 
             while (answer != 'A' && answer != 'B' && answer != 'C' && answer != 'D')
             {
-                cout << "  Invalid input! Enter A, B, C or D: ";
-                cin >> answer;
-                answer = toupper(answer);
+                cout << BRED << "  Invalid input! Enter A, B, C or D (or 0 to quit): " << RESET;
+                cin >> inputStr;
+                if (inputStr == "0")
+                    return -1;
+                answer = toupper((unsigned char)inputStr[0]);
             }
 
             system("cls");
 
             if (answer == testQuestions[i].correctAnswer)
             {
-                cout << "\n  *** CORRECT! +" << testQuestions[i].points << " points ***\n";
+                cout << BGREEN << "\n  *** CORRECT! +" << testQuestions[i].points << " points ***\n" << RESET;
                 score += testQuestions[i].points;
             }
             else
             {
-                cout << "\n  --- WRONG! Correct answer: " << testQuestions[i].correctAnswer << " ---\n";
+                cout << BRED << "\n  --- WRONG! Correct answer: " << testQuestions[i].correctAnswer << " ---\n" << RESET;
             }
 
-            cout << "\n  Current score: " << score << " points\n";
+            cout << BYELLOW << "\n  Current score: " << score << " points\n" << RESET;
             cout << "\n  Press ENTER for the next question...";
             cin.ignore();
             cin.get();

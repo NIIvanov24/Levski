@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <iomanip>
 #include <utility>
+#include <fstream>
 #include "Question.h"
 #include "Test.h"
 using namespace std;
@@ -16,7 +17,8 @@ vector<int>    allScores;
 vector<string> allNames;
 vector<int>    allGrades;
 vector<int>    allMaxScores;
-//Basic colors for regular text
+
+// ── Color macros ────────────────────────────────────────────────────
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
 #define GREEN   "\033[32m"
@@ -25,8 +27,6 @@ vector<int>    allMaxScores;
 #define MAGENTA "\033[35m"
 #define CYAN    "\033[36m"
 #define WHITE   "\033[37m"
-
-//More bright colors for headings and important info
 #define BRED     "\033[91m"
 #define BGREEN   "\033[92m"
 #define BYELLOW  "\033[93m"
@@ -35,7 +35,8 @@ vector<int>    allMaxScores;
 #define BCYAN    "\033[96m"
 #define BWHITE   "\033[97m"
 
-// Waits for the user to press ENTER.
+// ── Helpers ─────────────────────────────────────────────────────────
+
 void pauseScreen()
 {
     cout << "\n  Press ENTER to return to the menu...";
@@ -43,208 +44,201 @@ void pauseScreen()
     cin.get();
 }
 
+// Print a standard section header
+void printHeader(const string& title, const string& color)
+{
+    cout << BBLUE << "==============================\n" << RESET;
+    cout << color << "  " << title << "\n" << RESET;
+    cout << BBLUE << "==============================\n\n" << RESET;
+}
 
-// Shows study materials for Math, English, and Chemistry.
+
+// ════════════════════════════════════════════════════════════════════
+//  STUDY MATERIALS
+// ════════════════════════════════════════════════════════════════════
 void showStudyMaterials()
 {
     int subChoice;
     do
     {
         system("cls");
-        cout << BBLUE <<"==============================\n";
-        cout << BGREEN <<"       STUDY MATERIALS        \n";
-        cout << BBLUE <<"==============================\n\n";
-        cout << BGREEN << "  1. Mathematics\n";
-        cout << BGREEN << "  2. English\n";
-        cout << BGREEN << "  3. Chemistry\n";
-        cout << BGREEN << "  4. Biology\n";
-        cout << BGREEN << "  5. Physics\n";
-        cout << BGREEN << "  6. C++ Programming\n";
-        cout << BRED <<"  7. Back\n\n";
-        cout << BYELLOW <<"  Choice: ";
+        cout << BBLUE << "==============================\n" << RESET;
+        cout << BGREEN << "       STUDY MATERIALS        \n" << RESET;
+        cout << BBLUE << "==============================\n\n" << RESET;
+        cout << BGREEN << "  1. Mathematics\n" << RESET;
+        cout << BGREEN << "  2. English\n" << RESET;
+        cout << BGREEN << "  3. Chemistry\n" << RESET;
+        cout << BGREEN << "  4. Biology\n" << RESET;
+        cout << BGREEN << "  5. Physics\n" << RESET;
+        cout << BGREEN << "  6. C++ Programming\n" << RESET;
+        cout << BRED << "  7. Back\n\n" << RESET;
+        cout << BYELLOW << "  Choice: " << RESET;
         cin >> subChoice;
 
-        if (cin.fail())
-        {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            continue;
-        }
+        if (cin.fail()) { cin.clear(); cin.ignore(1000, '\n'); continue; }
 
         system("cls");
 
         if (subChoice == 1)
         {
-            cout << "==============================\n";
-            cout << "         MATHEMATICS          \n";
-            cout << "==============================\n\n";
-            cout << "  BASIC OPERATIONS\n";
-            cout << "==============================\n";
-            cout << "  + Addition       : 5 + 3 = 8\n";
-            cout << "  - Subtraction    : 9 - 4 = 5\n";
-            cout << "  * Multiplication : 6 * 7 = 42\n";
-            cout << "  / Division       : 10 / 2 = 5\n\n";
-            cout << "  IMPORTANT FORMULAS\n";
-            cout << "==============================\n";
-            cout << "  Area of square       : a * a\n";
-            cout << "  Area of rectangle    : a * b\n";
-            cout << "  Square root          : sqrt(16) = 4\n\n";
-            cout << "  POWERS\n";
-            cout << "==============================\n";
-            cout << "  2^1=2, 2^2=4, 2^3=8, 2^4=16\n";
-            cout << "  3^1=3, 3^2=9, 3^3=27\n";
+            printHeader("MATHEMATICS", BLUE);
+            cout << YELLOW << "  BASIC OPERATIONS\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  + Addition       : 5 + 3 = 8\n" << RESET;
+            cout << BYELLOW << "  - Subtraction    : 9 - 4 = 5\n" << RESET;
+            cout << BYELLOW << "  * Multiplication : 6 * 7 = 42\n" << RESET;
+            cout << BYELLOW << "  / Division       : 10 / 2 = 5\n\n" << RESET;
+            cout << BYELLOW << "  IMPORTANT FORMULAS\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  Area of square       : a * a\n" << RESET;
+            cout << BYELLOW << "  Area of rectangle    : a * b\n" << RESET;
+            cout << BYELLOW << "  Square root          : sqrt(16) = 4\n\n" << RESET;
+            cout << BYELLOW << "  POWERS\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  2^1=2, 2^2=4, 2^3=8, 2^4=16\n" << RESET;
+            cout << BYELLOW << "  3^1=3, 3^2=9, 3^3=27\n" << RESET;
             pauseScreen();
         }
         else if (subChoice == 2)
         {
-            cout << "==============================\n";
-            cout << "           ENGLISH            \n";
-            cout << "==============================\n\n";
-            cout << "  VERB TENSES\n";
-            cout << "  ==============================\n";
-            cout << "  Present Simple : He GOES to school\n";
-            cout << "  Past Simple    : He WENT to school\n";
-            cout << "  Present Cont.  : He IS GOING to school\n\n";
-            cout << "  VERB 'to be'\n";
-            cout << "  ==============================\n";
-            cout << "  I am  / You are / He-She-It is\n";
-            cout << "  We are / They are\n\n";
-            cout << "  IRREGULAR VERBS\n";
-            cout << "  ==============================\n";
-            cout << "  go  -> went  -> gone\n";
-            cout << "  eat -> ate   -> eaten\n";
-            cout << "  run -> ran   -> run\n";
-            cout << "  see -> saw   -> seen\n\n";
-            cout << "  SYNONYMS / ANTONYMS\n";
-            cout << "  ==============================\n";
-            cout << "  big = large  |  big  <-> small\n";
-            cout << "  fast = quick |  hot  <-> cold\n";
+            printHeader("ENGLISH", RED);
+            cout << BYELLOW << "  VERB TENSES\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  Present Simple : He GOES to school\n" << RESET;
+            cout << BYELLOW << "  Past Simple    : He WENT to school\n" << RESET;
+            cout << BYELLOW << "  Present Cont.  : He IS GOING to school\n\n" << RESET;
+            cout << BYELLOW << "  VERB 'to be'\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  I am  / You are / He-She-It is\n" << RESET;
+            cout << BYELLOW << "  We are / They are\n\n" << RESET;
+            cout << BYELLOW << "  IRREGULAR VERBS\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  go  -> went  -> gone\n" << RESET;
+            cout << BYELLOW << "  eat -> ate   -> eaten\n" << RESET;
+            cout << BYELLOW << "  run -> ran   -> run\n" << RESET;
+            cout << BYELLOW << "  see -> saw   -> seen\n\n" << RESET;
+            cout << BYELLOW << "  SYNONYMS / ANTONYMS\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  big = large  |  big  <-> small\n" << RESET;
+            cout << BYELLOW << "  fast = quick |  hot  <-> cold\n" << RESET;
             pauseScreen();
         }
         else if (subChoice == 3)
         {
-            cout << "==============================\n";
-            cout << "          CHEMISTRY           \n";
-            cout << "==============================\n\n";
-            cout << "  IMPORTANT CHEMICAL FORMULAS\n";
-            cout << "  ==============================\n";
-            cout << "  H2O  - Water\n";
-            cout << "  NaCl - Table Salt\n";
-            cout << "  CO2  - Carbon Dioxide\n";
-            cout << "  O2   - Oxygen\n";
-            cout << "  H2   - Hydrogen\n";
-            cout << "  HCl  - Hydrochloric Acid\n";
-            cout << "  NH3  - Ammonia\n";
-            cout << "  CH4  - Methane\n";
-            cout << "  O3   - Ozone\n\n";
-            cout << "  pH SCALE\n";
-            cout << "  ==============================\n";
-            cout << "  0-6  : Acid\n";
-            cout << "  7    : Neutral (water)\n";
-            cout << "  8-14 : Base\n\n";
-            cout << "  CHEMICAL SYMBOLS\n";
-            cout << "  ==============================\n";
-            cout << "  H=Hydrogen  O=Oxygen\n";
-            cout << "  C=Carbon    N=Nitrogen  Na=Sodium\n";
+            printHeader("CHEMISTRY", BYELLOW);
+            cout << BYELLOW << "  IMPORTANT CHEMICAL FORMULAS\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  H2O  - Water\n" << RESET;
+            cout << BYELLOW << "  NaCl - Table Salt\n" << RESET;
+            cout << BYELLOW << "  CO2  - Carbon Dioxide\n" << RESET;
+            cout << BYELLOW << "  O2   - Oxygen\n" << RESET;
+            cout << BYELLOW << "  H2   - Hydrogen\n" << RESET;
+            cout << BYELLOW << "  HCl  - Hydrochloric Acid\n" << RESET;
+            cout << BYELLOW << "  NH3  - Ammonia\n" << RESET;
+            cout << BYELLOW << "  CH4  - Methane\n" << RESET;
+            cout << BYELLOW << "  O3   - Ozone\n\n" << RESET;
+            cout << BYELLOW << "  pH SCALE\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  0-6  : Acid\n" << RESET;
+            cout << BYELLOW << "  7    : Neutral (water)\n" << RESET;
+            cout << BYELLOW << "  8-14 : Base\n\n" << RESET;
+            cout << BYELLOW << "  CHEMICAL SYMBOLS\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  H=Hydrogen  O=Oxygen\n" << RESET;
+            cout << BYELLOW << "  C=Carbon    N=Nitrogen  Na=Sodium\n" << RESET;
             pauseScreen();
         }
         else if (subChoice == 4)
         {
-            cout << "==============================\n";
-            cout << "           BIOLOGY            \n";
-            cout << "==============================\n\n";
-            cout << "  THE CELL\n";
-            cout << "  ==============================\n";
-            cout << "  - Basic unit of life: CELL\n";
-            cout << "  - Nucleus     : controls cell activity\n";
-            cout << "  - Mitochondria: produces energy (ATP)\n";
-            cout << "  - Ribosome    : produces proteins\n";
-            cout << "  - Vacuole     : stores water/waste\n\n";
-            cout << "  THE HUMAN BODY\n";
-            cout << "  ==============================\n";
-            cout << "  - Heart       : 4 chambers, pumps blood\n";
-            cout << "  - Lungs       : gas exchange (O2 / CO2)\n";
-            cout << "  - Bones       : 206 in adult human body\n";
-            cout << "  - Red blood cells : carry oxygen\n";
-            cout << "  - White blood cells: fight infections\n\n";
-            cout << "  PHOTOSYNTHESIS\n";
-            cout << "  ==============================\n";
-            cout << "  CO2 + H2O + light -> O2 + glucose\n\n";
-            cout << "  GENETICS\n";
-            cout << "  ==============================\n";
-            cout << "  - DNA = Deoxyribonucleic Acid\n";
-            cout << "  - Human cells have 46 chromosomes\n";
-            cout << "  - Genes carry hereditary information\n";
+            printHeader("BIOLOGY", BMAGENTA);
+            cout << BRED << "  THE CELL\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  - Basic unit of life: CELL\n" << RESET;
+            cout << BYELLOW << "  - Nucleus     : controls cell activity\n" << RESET;
+            cout << BYELLOW << "  - Mitochondria: produces energy (ATP)\n" << RESET;
+            cout << BYELLOW << "  - Ribosome    : produces proteins\n" << RESET;
+            cout << BYELLOW << "  - Vacuole     : stores water/waste\n\n" << RESET;
+            cout << BYELLOW << "  THE HUMAN BODY\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  - Heart       : 4 chambers, pumps blood\n" << RESET;
+            cout << BYELLOW << "  - Lungs       : gas exchange (O2 / CO2)\n" << RESET;
+            cout << BYELLOW << "  - Bones       : 206 in adult human body\n" << RESET;
+            cout << BYELLOW << "  - Red blood cells : carry oxygen\n" << RESET;
+            cout << BYELLOW << "  - White blood cells: fight infections\n\n" << RESET;
+            cout << BYELLOW << "  PHOTOSYNTHESIS\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  CO2 + H2O + light -> O2 + glucose\n\n" << RESET;
+            cout << BYELLOW << "  GENETICS\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  - DNA = Deoxyribonucleic Acid\n" << RESET;
+            cout << BYELLOW << "  - Human cells have 46 chromosomes\n" << RESET;
+            cout << BYELLOW << "  - Genes carry hereditary information\n" << RESET;
             pauseScreen();
         }
         else if (subChoice == 5)
         {
-            cout << "==============================\n";
-            cout << "           PHYSICS            \n";
-            cout << "==============================\n\n";
-            cout << "  UNITS OF MEASUREMENT\n";
-            cout << "  ==============================\n";
-            cout << "  Force    : Newton  (N)\n";
-            cout << "  Energy   : Joule   (J)\n";
-            cout << "  Power    : Watt    (W)\n";
-            cout << "  Current  : Ampere  (A)\n";
-            cout << "  Voltage  : Volt    (V)\n";
-            cout << "  Resistance: Ohm   (Ohm)\n\n";
-            cout << "  NEWTON'S LAWS\n";
-            cout << "  ==============================\n";
-            cout << "  1st: Object stays at rest unless acted upon\n";
-            cout << "  2nd: F = m * a\n";
-            cout << "  3rd: Every action has an equal reaction\n\n";
-            cout << "  IMPORTANT FACTS\n";
-            cout << "  ==============================\n";
-            cout << "  Speed of light : 300 000 km/s\n";
-            cout << "  Speed formula  : s = d / t\n";
-            cout << "  Boiling point of water: 100 degrees C\n";
-            cout << "  Freezing point of water: 0 degrees C\n";
-            cout << "  Gravity on Earth: 9.8 m/s^2\n\n";
-            cout << "  ENERGY TYPES\n";
-            cout << "  ==============================\n";
-            cout << "  Kinetic  : energy of moving objects\n";
-            cout << "  Potential: stored energy (height)\n";
+            printHeader("PHYSICS", BWHITE);
+            cout << BLUE << "  UNITS OF MEASUREMENT\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  Force    : Newton  (N)\n" << RESET;
+            cout << BYELLOW << "  Energy   : Joule   (J)\n" << RESET;
+            cout << BYELLOW << "  Power    : Watt    (W)\n" << RESET;
+            cout << BYELLOW << "  Current  : Ampere  (A)\n" << RESET;
+            cout << BYELLOW << "  Voltage  : Volt    (V)\n" << RESET;
+            cout << BYELLOW << "  Resistance: Ohm   (Ohm)\n\n" << RESET;
+            cout << BYELLOW << "  NEWTON'S LAWS\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  1st: Object stays at rest unless acted upon\n" << RESET;
+            cout << BYELLOW << "  2nd: F = m * a\n" << RESET;
+            cout << BYELLOW << "  3rd: Every action has an equal reaction\n\n" << RESET;
+            cout << BYELLOW << "  IMPORTANT FACTS\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  Speed of light : 300 000 km/s\n" << RESET;
+            cout << BYELLOW << "  Speed formula  : s = d / t\n" << RESET;
+            cout << BYELLOW << "  Boiling point of water: 100 degrees C\n" << RESET;
+            cout << BYELLOW << "  Freezing point of water: 0 degrees C\n" << RESET;
+            cout << BYELLOW << "  Gravity on Earth: 9.8 m/s^2\n\n" << RESET;
+            cout << BYELLOW << "  ENERGY TYPES\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  Kinetic  : energy of moving objects\n" << RESET;
+            cout << BYELLOW << "  Potential: stored energy (height)\n" << RESET;
             pauseScreen();
         }
         else if (subChoice == 6)
         {
-            cout << "==============================\n";
-            cout << "       C++ PROGRAMMING        \n";
-            cout << "==============================\n\n";
-            cout << "  BASIC STRUCTURE\n";
-            cout << "  ==============================\n";
-            cout << "  #include <iostream>\n";
-            cout << "  using namespace std;\n";
-            cout << "  int main() {\n";
-            cout << "      cout << \"Hello World\";\n";
-            cout << "      return 0;\n";
-            cout << "  }\n\n";
-            cout << "  DATA TYPES\n";
-            cout << "  ==============================\n";
-            cout << "  int    : integer (4 bytes)\n";
-            cout << "  double : decimal number\n";
-            cout << "  char   : single character\n";
-            cout << "  string : text\n";
-            cout << "  bool   : true / false\n\n";
-            cout << "  CONTROL STRUCTURES\n";
-            cout << "  ==============================\n";
-            cout << "  if / else if / else\n";
-            cout << "  for (int i=0; i<n; i++)\n";
-            cout << "  while (condition)\n";
-            cout << "  do { ... } while (condition);\n\n";
-            cout << "  COMMENTS\n";
-            cout << "  ==============================\n";
-            cout << "  // Single-line comment\n";
-            cout << "  /* Multi-line comment */\n\n";
-            cout << "  CLASSES\n";
-            cout << "  ==============================\n";
-            cout << "  class MyClass {\n";
-            cout << "  public:\n";
-            cout << "      int x;\n";
-            cout << "  };\n";
-            cout << "  Pointer member access: ptr->member\n";
+            printHeader("C++ PROGRAMMING", BCYAN);
+            cout << BYELLOW << "  BASIC STRUCTURE\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  #include <iostream>\n" << RESET;
+            cout << BYELLOW << "  using namespace std;\n" << RESET;
+            cout << BYELLOW << "  int main() {\n" << RESET;
+            cout << BYELLOW << "      cout << \"Hello World\";\n" << RESET;
+            cout << BYELLOW << "      return 0;\n" << RESET;
+            cout << BYELLOW << "  }\n\n" << RESET;
+            cout << BYELLOW << "  DATA TYPES\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  int    : integer (4 bytes)\n" << RESET;
+            cout << BYELLOW << "  double : decimal number\n" << RESET;
+            cout << BYELLOW << "  char   : single character\n" << RESET;
+            cout << BYELLOW << "  string : text\n" << RESET;
+            cout << BYELLOW << "  bool   : true / false\n\n" << RESET;
+            cout << BYELLOW << "  CONTROL STRUCTURES\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  if / else if / else\n" << RESET;
+            cout << BYELLOW << "  for (int i=0; i<n; i++)\n" << RESET;
+            cout << BYELLOW << "  while (condition)\n" << RESET;
+            cout << BYELLOW << "  do { ... } while (condition);\n\n" << RESET;
+            cout << BYELLOW << "  COMMENTS\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  // Single-line comment\n" << RESET;
+            cout << BYELLOW << "  /* Multi-line comment */\n\n" << RESET;
+            cout << BYELLOW << "  CLASSES\n" << RESET;
+            cout << BBLUE << "  ==============================\n" << RESET;
+            cout << BYELLOW << "  class MyClass {\n" << RESET;
+            cout << BYELLOW << "  public:\n" << RESET;
+            cout << BYELLOW << "      int x;\n" << RESET;
+            cout << BYELLOW << "  };\n" << RESET;
+            cout << BYELLOW << "  Pointer member access: ptr->member\n" << RESET;
             pauseScreen();
         }
 
@@ -252,33 +246,29 @@ void showStudyMaterials()
 }
 
 
-// Shows practice exercises and checks the answers.
+// ════════════════════════════════════════════════════════════════════
+//  EXERCISES
+// ════════════════════════════════════════════════════════════════════
 void showExercises()
 {
     int subChoice;
     do
     {
         system("cls");
-        cout << "==============================\n";
-        cout << "          EXERCISES           \n";
-        cout << "==============================\n\n";
-        cout << "  1. Mathematics\n";
-        cout << "  2. English\n";
-        cout << "  3. Chemistry\n";
-        cout << "  4. Biology\n";
-        cout << "  5. Physics\n";
-        cout << "  6. C++ Programming\n";
-        cout << "  7. Back\n\n";
-        cout << "  Choice: ";
+        cout << BBLUE << "==============================\n" << RESET;
+        cout << BWHITE << "          EXERCISES           \n" << RESET;
+        cout << BBLUE << "==============================\n\n" << RESET;
+        cout << BRED << "  1. Mathematics\n" << RESET;
+        cout << BYELLOW << "  2. English\n" << RESET;
+        cout << BGREEN << "  3. Chemistry\n" << RESET;
+        cout << BMAGENTA << "  4. Biology\n" << RESET;
+        cout << BCYAN << "  5. Physics\n" << RESET;
+        cout << RED << "  6. C++ Programming\n" << RESET;
+        cout << YELLOW << "  7. Back\n\n" << RESET;
+        cout << GREEN << "  Choice: " << RESET;
         cin >> subChoice;
 
-        if (cin.fail())
-        {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            continue;
-        }
-
+        if (cin.fail()) { cin.clear(); cin.ignore(1000, '\n'); continue; }
         if (subChoice < 1 || subChoice > 7) continue;
         if (subChoice == 7) break;
 
@@ -286,101 +276,107 @@ void showExercises()
 
         if (subChoice == 1)
         {
-            exercises.push_back(make_pair(string("What is 8 * 7?"), string("56")));
-            exercises.push_back(make_pair(string("What is 15 - 6?"), string("9")));
-            exercises.push_back(make_pair(string("Square root of 25?"), string("5")));
-            exercises.push_back(make_pair(string("What is 100 / 4?"), string("25")));
-            exercises.push_back(make_pair(string("What is 3^3?"), string("27")));
+            exercises.push_back({ "What is 8 * 7?",                  "56" });
+            exercises.push_back({ "What is 15 - 6?",                 "9" });
+            exercises.push_back({ "Square root of 25?",              "5" });
+            exercises.push_back({ "What is 100 / 4?",                "25" });
+            exercises.push_back({ "What is 3^3?",                    "27" });
         }
         else if (subChoice == 2)
         {
-            exercises.push_back(make_pair(string("Past tense of 'go'?"), string("went")));
-            exercises.push_back(make_pair(string("Plural of 'child'?"), string("children")));
-            exercises.push_back(make_pair(string("Synonym of 'big'?"), string("large")));
-            exercises.push_back(make_pair(string("Antonym of 'hot'?"), string("cold")));
-            exercises.push_back(make_pair(string("Past tense of 'eat'?"), string("ate")));
+            exercises.push_back({ "Past tense of 'go'?",             "went" });
+            exercises.push_back({ "Plural of 'child'?",              "children" });
+            exercises.push_back({ "Synonym of 'big'?",               "large" });
+            exercises.push_back({ "Antonym of 'hot'?",               "cold" });
+            exercises.push_back({ "Past tense of 'eat'?",            "ate" });
         }
         else if (subChoice == 3)
         {
-            exercises.push_back(make_pair(string("Chemical formula of water?"), string("H2O")));
-            exercises.push_back(make_pair(string("Chemical formula of salt?"), string("NaCl")));
-            exercises.push_back(make_pair(string("What is the pH of pure water?"), string("7")));
-            exercises.push_back(make_pair(string("What gas do plants produce?"), string("O2")));
-            exercises.push_back(make_pair(string("Chemical formula of ammonia?"), string("NH3")));
+            exercises.push_back({ "Chemical formula of water?",      "H2O" });
+            exercises.push_back({ "Chemical formula of salt?",       "NaCl" });
+            exercises.push_back({ "What is the pH of pure water?",   "7" });
+            exercises.push_back({ "What gas do plants produce?",     "O2" });
+            exercises.push_back({ "Chemical formula of ammonia?",    "NH3" });
         }
         else if (subChoice == 4)
         {
-            exercises.push_back(make_pair(string("What is the basic unit of life?"), string("cell")));
-            exercises.push_back(make_pair(string("How many chambers does the heart have?"), string("4")));
-            exercises.push_back(make_pair(string("How many bones in the adult human body?"), string("206")));
-            exercises.push_back(make_pair(string("What is the powerhouse of the cell?"), string("mitochondria")));
-            exercises.push_back(make_pair(string("How many chromosomes do human cells have?"), string("46")));
+            exercises.push_back({ "What is the basic unit of life?",           "cell" });
+            exercises.push_back({ "How many chambers does the heart have?",    "4" });
+            exercises.push_back({ "How many bones in the adult human body?",   "206" });
+            exercises.push_back({ "What is the powerhouse of the cell?",       "mitochondria" });
+            exercises.push_back({ "How many chromosomes do human cells have?", "46" });
         }
         else if (subChoice == 5)
         {
-            exercises.push_back(make_pair(string("What is the unit of force?"), string("newton")));
-            exercises.push_back(make_pair(string("What is the speed of light? (km/s)"), string("300000")));
-            exercises.push_back(make_pair(string("What is the unit of electric current?"), string("ampere")));
-            exercises.push_back(make_pair(string("What is the boiling point of water? (C)"), string("100")));
-            exercises.push_back(make_pair(string("What is the unit of power?"), string("watt")));
+            exercises.push_back({ "What is the unit of force?",               "newton" });
+            exercises.push_back({ "What is the speed of light? (km/s)",       "300000" });
+            exercises.push_back({ "What is the unit of electric current?",    "ampere" });
+            exercises.push_back({ "What is the boiling point of water? (C)",  "100" });
+            exercises.push_back({ "What is the unit of power?",               "watt" });
         }
         else if (subChoice == 6)
         {
-            exercises.push_back(make_pair(string("Which function starts a C++ program?"), string("main")));
-            exercises.push_back(make_pair(string("Which header is needed for cout?"), string("iostream")));
-            exercises.push_back(make_pair(string("What symbol starts a single-line comment?"), string("//")));
-            exercises.push_back(make_pair(string("What keyword defines a class in C++?"), string("class")));
-            exercises.push_back(make_pair(string("What operator accesses a member via pointer?"), string("->")));
+            exercises.push_back({ "Which function starts a C++ program?",        "main" });
+            exercises.push_back({ "Which header is needed for cout?",            "iostream" });
+            exercises.push_back({ "What symbol starts a single-line comment?",   "//" });
+            exercises.push_back({ "What keyword defines a class in C++?",        "class" });
+            exercises.push_back({ "What operator accesses a member via pointer?","->" });
         }
 
-        int correct = 0;
+        int  correct = 0;
+        bool exitedEarly = false;
+
         for (int i = 0; i < (int)exercises.size(); i++)
         {
             system("cls");
             string question = exercises[i].first;
             string answer = exercises[i].second;
 
-            cout << "==============================\n";
-            cout << "  Exercise " << (i + 1) << " of " << exercises.size() << "\n";
-            cout << "==============================\n\n";
-            cout << "  " << question << "\n\n";
-            cout << "  Answer: ";
+            cout << BBLUE << "==============================\n" << RESET;
+            cout << BYELLOW << "  Exercise " << (i + 1) << " of " << exercises.size() << "\n" << RESET;
+            cout << BBLUE << "==============================\n\n" << RESET;
+            cout << BYELLOW << "  " << question << "\n\n" << RESET;
+            cout << BRED << "  Type '0' to go back to the menu.\n\n" << RESET;
+            cout << BGREEN << "  Answer: " << RESET;
 
             string userAnswer;
             cin >> userAnswer;
 
-            string ua = userAnswer;
-            string ans = answer;
-            for (int k = 0; k < (int)ua.size(); k++) ua[k] = (char)tolower((unsigned char)ua[k]);
-            for (int k = 0; k < (int)ans.size(); k++) ans[k] = (char)tolower((unsigned char)ans[k]);
+            if (userAnswer == "0") { exitedEarly = true; break; }
+
+            string ua = userAnswer, ans = answer;
+            for (char& c : ua)  c = (char)tolower((unsigned char)c);
+            for (char& c : ans) c = (char)tolower((unsigned char)c);
 
             system("cls");
             if (ua == ans)
             {
-                cout << "\n  *** CORRECT! ***\n";
+                cout << BGREEN << "\n  *** CORRECT! ***\n" << RESET;
                 correct++;
             }
             else
             {
-                cout << "\n  --- WRONG! The correct answer is: " << answer << " ---\n";
+                cout << BRED << "\n  --- WRONG! The correct answer is: " << answer << " ---\n" << RESET;
             }
-            cout << "\n  Score: " << correct << "/" << (i + 1) << "\n";
+            cout << BYELLOW << "\n  Score: " << correct << "/" << (i + 1) << "\n" << RESET;
             cout << "\n  Press ENTER for the next exercise...";
             cin.ignore();
             cin.get();
         }
 
-        system("cls");
-        cout << "==============================\n";
-        cout << "       EXERCISE RESULT        \n";
-        cout << "==============================\n\n";
-        cout << "  Correct answers: " << correct << " of " << (int)exercises.size() << "\n";
-        double pct = ((double)correct / (double)exercises.size()) * 100.0;
-        cout << "  Percentage: " << fixed << setprecision(1) << pct << "%\n\n";
+        if (exitedEarly) continue;
 
-        if (pct == 100.0)   cout << "  Excellent! Perfect score!\n";
-        else if (pct >= 60) cout << "  Good job! Keep studying!\n";
-        else                cout << "  Review the study materials and try again!\n";
+        system("cls");
+        cout << BBLUE << "==============================\n" << RESET;
+        cout << CYAN << "       EXERCISE RESULT        \n" << RESET;
+        cout << BBLUE << "==============================\n\n" << RESET;
+        cout << BGREEN << "  Correct answers: " << correct << " of " << (int)exercises.size() << "\n" << RESET;
+        double pct = ((double)correct / (double)exercises.size()) * 100.0;
+        cout << BCYAN << "  Percentage: " << fixed << setprecision(1) << pct << "%\n\n" << RESET;
+
+        if (pct == 100.0) cout << BGREEN << "  Excellent! Perfect score!\n" << RESET;
+        else if (pct >= 60)    cout << BYELLOW << "  Good job! Keep studying!\n" << RESET;
+        else                   cout << BRED << "  Review the study materials and try again!\n" << RESET;
 
         pauseScreen();
 
@@ -388,29 +384,31 @@ void showExercises()
 }
 
 
-// Starts a test and shows the result.
+// ════════════════════════════════════════════════════════════════════
+//  START TEST
+// ════════════════════════════════════════════════════════════════════
 void startTest()
 {
     system("cls");
-    cout << "==============================\n";
-    cout << "          TAKE A TEST         \n";
-    cout << "==============================\n\n";
+    cout << BBLUE << "==============================\n" << RESET;
+    cout << BWHITE << "          TAKE A TEST         \n" << RESET;
+    cout << BBLUE << "==============================\n\n" << RESET;
 
     string name;
-    cout << "  Enter your name: ";
+    cout << MAGENTA << "  Enter your name: " << RESET;
     cin.ignore();
     getline(cin, name);
-
     if (name.empty()) name = "Student";
 
     system("cls");
-    cout << "==============================\n";
-    cout << "  Hello, " << name << "!\n";
-    cout << "==============================\n\n";
-    cout << "  The test contains 20 questions.\n";
-    cout << "  Answer with A, B, C or D.\n";
-    cout << "  Good luck!\n\n";
-    cout << "  Press ENTER to start...";
+    cout << BBLUE << "==============================\n" << RESET;
+    cout << MAGENTA << "  Hello, " << name << "!\n" << RESET;
+    cout << BBLUE << "==============================\n\n" << RESET;
+    cout << RED << "  The test contains 20 questions.\n" << RESET;
+    cout << RED << "  Answer with A, B, C or D.\n" << RESET;
+    cout << BRED << "  Type '0' at any question to quit the test.\n" << RESET;
+    cout << GREEN << "  Good luck!\n\n" << RESET;
+    cout << GREEN << "  Press ENTER to start..." << RESET;
     cin.get();
 
     Test test;
@@ -418,8 +416,20 @@ void startTest()
     test.generateTest();
 
     int score = test.startTest();
-    int maxScore = test.getMaxScore();
 
+    if (score == -1)
+    {
+        system("cls");
+        cout << BBLUE << "==============================\n" << RESET;
+        cout << BYELLOW << "     TEST CANCELLED           \n" << RESET;
+        cout << BBLUE << "==============================\n\n" << RESET;
+        cout << BRED << "  You exited the test early.\n" << RESET;
+        cout << BRED << "  No result has been saved.\n\n" << RESET;
+        pauseScreen();
+        return;
+    }
+
+    int    maxScore = test.getMaxScore();
     double percent = (maxScore > 0) ? ((double)score / (double)maxScore) * 100.0 : 0.0;
 
     int grade;
@@ -437,19 +447,19 @@ void startTest()
     else                 stars = "[**----]";
 
     system("cls");
-    cout << "==============================\n";
-    cout << "           RESULT             \n";
-    cout << "==============================\n\n";
-    cout << "  Student    : " << name << "\n";
-    cout << "  Points     : " << score << " / " << maxScore << "\n";
-    cout << "  Percentage : " << fixed << setprecision(1) << percent << "%\n";
-    cout << "  Grade      : " << grade << "  " << stars << "\n\n";
+    cout << BBLUE << "==============================\n" << RESET;
+    cout << BYELLOW << "           RESULT             \n" << RESET;
+    cout << BBLUE << "==============================\n\n" << RESET;
+    cout << CYAN << "  Student    : " << name << "\n" << RESET;
+    cout << CYAN << "  Points     : " << score << " / " << maxScore << "\n" << RESET;
+    cout << CYAN << "  Percentage : " << fixed << setprecision(1) << percent << "%\n" << RESET;
+    cout << CYAN << "  Grade      : " << grade << "  " << stars << "\n\n" << RESET;
 
-    if (grade == 6) cout << "  Excellent result! Well done!\n";
-    else if (grade == 5) cout << "  Very good! Keep it up!\n";
-    else if (grade == 4) cout << "  Good! You can do better!\n";
-    else if (grade == 3) cout << "  Poor. Review the material!\n";
-    else                 cout << "  Insufficient. Study more!\n";
+    if (grade == 6) cout << BGREEN << "  Excellent result! Well done!\n" << RESET;
+    else if (grade == 5) cout << BYELLOW << "  Very good! Keep it up!\n" << RESET;
+    else if (grade == 4) cout << BYELLOW << "  Good! You can do better!\n" << RESET;
+    else if (grade == 3) cout << BRED << "  Poor. Review the material!\n" << RESET;
+    else                 cout << BRED << "  Insufficient. Study more!\n" << RESET;
 
     allNames.push_back(name);
     allScores.push_back(score);
@@ -460,69 +470,231 @@ void startTest()
 }
 
 
-// Shows all saved test statistics.
+// ════════════════════════════════════════════════════════════════════
+//  STATISTICS
+// ════════════════════════════════════════════════════════════════════
 void showStatistics()
 {
     system("cls");
-    cout << "==============================\n";
-    cout << "         STATISTICS           \n";
-    cout << "==============================\n\n";
+    cout << BBLUE << "==============================\n" << RESET;
+    cout << BWHITE << "         STATISTICS           \n" << RESET;
+    cout << BBLUE << "==============================\n\n" << RESET;
 
     if (allScores.empty())
     {
-        cout << "  No data yet! Take at least one test.\n";
+        cout << BRED << "  No data yet! Take at least one test.\n" << RESET;
         pauseScreen();
         return;
     }
 
-    int maxS = allScores[0], minS = allScores[0], sum = 0;
-    int bestIndex = 0;
-
+    int maxS = allScores[0], minS = allScores[0], sum = 0, bestIndex = 0;
     for (int i = 0; i < (int)allScores.size(); i++)
     {
         if (allScores[i] > maxS) { maxS = allScores[i]; bestIndex = i; }
         if (allScores[i] < minS)   minS = allScores[i];
         sum += allScores[i];
     }
-
     double avg = (double)sum / (double)allScores.size();
 
-    cout << "  Tests taken        : " << (int)allScores.size() << "\n";
-    cout << "  Highest score      : " << maxS << "  (" << allNames[bestIndex] << ")\n";
-    cout << "  Lowest score       : " << minS << "\n";
-    cout << "  Average score      : " << fixed << setprecision(1) << avg << "\n\n";
+    cout << BLUE << "  Tests taken        : " << (int)allScores.size() << "\n" << RESET;
+    cout << GREEN << "  Highest score      : " << maxS << "  (" << allNames[bestIndex] << ")\n" << RESET;
+    cout << RED << "  Lowest score       : " << minS << "\n" << RESET;
+    cout << YELLOW << "  Average score      : " << fixed << setprecision(1) << avg << "\n\n" << RESET;
 
-    cout << "  Grade distribution:\n";
+    cout << BYELLOW << "  Grade distribution:\n" << RESET;
     int g2 = 0, g3 = 0, g4 = 0, g5 = 0, g6 = 0;
-    for (int i = 0; i < (int)allGrades.size(); i++)
+    for (int g : allGrades)
     {
-        if (allGrades[i] == 2) g2++;
-        else if (allGrades[i] == 3) g3++;
-        else if (allGrades[i] == 4) g4++;
-        else if (allGrades[i] == 5) g5++;
-        else if (allGrades[i] == 6) g6++;
+        if (g == 2) g2++;
+        else if (g == 3) g3++;
+        else if (g == 4) g4++;
+        else if (g == 5) g5++;
+        else if (g == 6) g6++;
     }
-    cout << "  Grade 6: " << g6 << "\n";
-    cout << "  Grade 5: " << g5 << "\n";
-    cout << "  Grade 4: " << g4 << "\n";
-    cout << "  Grade 3: " << g3 << "\n";
-    cout << "  Grade 2: " << g2 << "\n\n";
+    cout << BCYAN << "  Grade 6: " << g6 << "\n" << RESET;
+    cout << BLUE << "  Grade 5: " << g5 << "\n" << RESET;
+    cout << GREEN << "  Grade 4: " << g4 << "\n" << RESET;
+    cout << YELLOW << "  Grade 3: " << g3 << "\n" << RESET;
+    cout << BRED << "  Grade 2: " << g2 << "\n\n" << RESET;
 
-    cout << "  All results:\n";
+    cout << BYELLOW << "  All results:\n" << RESET;
     for (int i = 0; i < (int)allNames.size(); i++)
     {
         double pct = (allMaxScores[i] > 0)
-            ? ((double)allScores[i] / (double)allMaxScores[i]) * 100.0
-            : 0.0;
+            ? ((double)allScores[i] / (double)allMaxScores[i]) * 100.0 : 0.0;
         cout << "  " << setw(2) << (i + 1) << ". "
             << left << setw(15) << allNames[i]
             << right << setw(4) << allScores[i]
-            << "/" << allMaxScores[i]
+            << YELLOW << "/" << allMaxScores[i]
             << "  (" << fixed << setprecision(0) << pct << "%)"
-            << "  Grade: " << allGrades[i] << "\n";
+            << BGREEN << "  Grade: " << allGrades[i] << "\n" << RESET;
     }
 
     pauseScreen();
 }
+
+
+// ════════════════════════════════════════════════════════════════════
+//  HOMEWORK
+//  - View assigned homework
+//  - Add new homework entry
+//  - Mark homework as done
+//  - Saved to homework.txt
+// ════════════════════════════════════════════════════════════════════
+
+// One homework/classwork item
+struct Assignment
+{
+    string subject;
+    string description;
+    string dueDate;     // e.g. "2024-06-10"
+    bool   done;
+};
+
+// ── Load assignments from a file ────────────────────────────────────
+vector<Assignment> loadAssignments(const string& filename)
+{
+    vector<Assignment> list;
+    ifstream file(filename);
+    if (!file.is_open()) return list;
+
+    string line;
+    while (getline(file, line))
+    {
+        if (line.empty()) continue;
+        // Format: SUBJECT|DESCRIPTION|DUEDATE|DONE(0/1)
+        Assignment a;
+        size_t p1 = line.find('|');
+        size_t p2 = line.find('|', p1 + 1);
+        size_t p3 = line.find('|', p2 + 1);
+        if (p1 == string::npos || p2 == string::npos || p3 == string::npos) continue;
+        a.subject = line.substr(0, p1);
+        a.description = line.substr(p1 + 1, p2 - p1 - 1);
+        a.dueDate = line.substr(p2 + 1, p3 - p2 - 1);
+        a.done = (line.substr(p3 + 1) == "1");
+        list.push_back(a);
+    }
+    file.close();
+    return list;
+}
+
+// ── Save assignments to a file ───────────────────────────────────────
+void saveAssignments(const string& filename, const vector<Assignment>& list)
+{
+    ofstream file(filename);
+    for (const Assignment& a : list)
+        file << a.subject << "|" << a.description << "|"
+        << a.dueDate << "|" << (a.done ? "1" : "0") << "\n";
+    file.close();
+}
+
+// ── Generic assignment manager (used by both Homework & Classwork) ──
+void manageAssignments(const string& title, const string& color,
+    const string& filename)
+{
+    int choice;
+    do
+    {
+        vector<Assignment> list = loadAssignments(filename);
+
+        system("cls");
+        cout << BBLUE << "==============================\n" << RESET;
+        cout << color << "  " << title << "\n" << RESET;
+        cout << BBLUE << "==============================\n\n" << RESET;
+
+        // ── List entries ────────────────────────────────────────────
+        if (list.empty())
+            cout << BYELLOW << "  No entries yet.\n\n" << RESET;
+        else
+        {
+            for (int i = 0; i < (int)list.size(); i++)
+            {
+                string status = list[i].done
+                    ? (BGREEN + string("[DONE]  ") + RESET)
+                    : (BRED + string("[TODO]  ") + RESET);
+                cout << status
+                    << BYELLOW << (i + 1) << ". " << RESET
+                    << BWHITE << list[i].subject << RESET
+                    << " - " << list[i].description
+                    << CYAN << "  (Due: " << list[i].dueDate << ")\n" << RESET;
+            }
+            cout << "\n";
+        }
+
+        // ── Sub-menu ────────────────────────────────────────────────
+        cout << BGREEN << "  1. Add new entry\n" << RESET;
+        cout << BYELLOW << "  2. Mark as done\n" << RESET;
+        cout << BRED << "  3. Delete entry\n" << RESET;
+        cout << BWHITE << "  4. Back\n\n" << RESET;
+        cout << BCYAN << "  Choice: " << RESET;
+        cin >> choice;
+        if (cin.fail()) { cin.clear(); cin.ignore(1000, '\n'); continue; }
+
+        // ── Add ─────────────────────────────────────────────────────
+        if (choice == 1)
+        {
+            Assignment a;
+            a.done = false;
+            cin.ignore();
+            system("cls");
+            cout << BBLUE << "==============================\n" << RESET;
+            cout << color << "  ADD ENTRY\n" << RESET;
+            cout << BBLUE << "==============================\n\n" << RESET;
+
+            cout << BCYAN << "  Subject     : " << RESET; getline(cin, a.subject);
+            cout << BCYAN << "  Description : " << RESET; getline(cin, a.description);
+            cout << BCYAN << "  Due date    : " << RESET; getline(cin, a.dueDate);
+
+            if (a.subject.empty()) a.subject = "General";
+            if (a.dueDate.empty()) a.dueDate = "No date";
+
+            list.push_back(a);
+            saveAssignments(filename, list);
+            cout << BGREEN << "\n  Entry added!\n" << RESET;
+            cout << "\n  Press ENTER..."; cin.get();
+        }
+        // ── Mark done ───────────────────────────────────────────────
+        else if (choice == 2)
+        {
+            if (list.empty()) { cout << BRED << "\n  Nothing to mark.\n" << RESET; cin.ignore(); cin.get(); continue; }
+            cout << BCYAN << "\n  Enter number to mark as done (0 to cancel): " << RESET;
+            int n; cin >> n;
+            if (n >= 1 && n <= (int)list.size())
+            {
+                list[n - 1].done = true;
+                saveAssignments(filename, list);
+                cout << BGREEN << "  Marked as done!\n" << RESET;
+            }
+            cout << "\n  Press ENTER..."; cin.ignore(); cin.get();
+        }
+        // ── Delete ──────────────────────────────────────────────────
+        else if (choice == 3)
+        {
+            if (list.empty()) { cout << BRED << "\n  Nothing to delete.\n" << RESET; cin.ignore(); cin.get(); continue; }
+            cout << BCYAN << "\n  Enter number to delete (0 to cancel): " << RESET;
+            int n; cin >> n;
+            if (n >= 1 && n <= (int)list.size())
+            {
+                list.erase(list.begin() + (n - 1));
+                saveAssignments(filename, list);
+                cout << BRED << "  Entry deleted!\n" << RESET;
+            }
+            cout << "\n  Press ENTER..."; cin.ignore(); cin.get();
+        }
+
+    } while (choice != 4);
+}
+
+// ── Public entry points called from Main.cpp ────────────────────────
+void showHomework()
+{
+    manageAssignments("HOMEWORK", BMAGENTA, "homework.txt");
+}
+
+void showClasswork()
+{
+    manageAssignments("CLASSWORK", BCYAN, "classwork.txt");
+}
+
 
 #endif

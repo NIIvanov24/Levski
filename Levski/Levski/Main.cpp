@@ -1,13 +1,18 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <string>
 #include <cstdlib>
+#ifdef _WIN32
+#include <conio.h>    // _getch() for arrow keys
+#endif
+#include "Auth.h"      // Login / Register  (must come BEFORE Functions.h)
 #include "Functions.h"
 #include "Question.h"
 #include "Test.h"
 using namespace std;
-//main.cpp
-//More bright colors for headings and important info
+
+// ── Color macros (kept here too so Main.cpp compiles stand-alone) ──
+#define RESET    "\033[0m"
 #define BRED     "\033[91m"
 #define BGREEN   "\033[92m"
 #define BYELLOW  "\033[93m"
@@ -15,64 +20,142 @@ using namespace std;
 #define BMAGENTA "\033[95m"
 #define BCYAN    "\033[96m"
 #define BWHITE   "\033[97m"
-//Basic colors for regular text
-#define RESET   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-#define BLUE    "\033[34m"
-#define MAGENTA "\033[35m"
-#define CYAN    "\033[36m"
-#define WHITE   "\033[37m"
+#define MAGENTA  "\033[35m"
+
+// ── Hide / show cursor ──────────────────────────────────────────────
+void hideCursor() { cout << "\033[?25l" << flush; }
+void showCursor() { cout << "\033[?25h" << flush; }
+
+// ── Draw the main menu with an arrow cursor ─────────────────────────
+void drawMainMenu(int selected, const string& loggedUser)
+{
+    system("cls");
+
+    // ASCII banner
+    cout << BBLUE << "=============================================================\n";
+    cout << "|||       ||||||||  |||        |||  ||||||||  |||   ||| |||||\n";
+    cout << "|||       |||        |||      |||  |||        |||  |||   |||\n";
+    cout << "|||       |||         |||    |||   |||        ||| |||    |||\n";
+    cout << "|||       |||||||     |||    |||   |||||||||  ||||       |||\n";
+    cout << "|||       |||           ||| |||          |||  ||| |||    |||\n";
+    cout << "|||       |||           ||| |||          |||  |||  |||   |||\n";
+    cout << "||||||||  ||||||||        |||      ||||||||   |||   ||| |||||\n";
+    cout << "=============================================================\n" << RESET;
+    cout << BGREEN << "                  ELECTRONIC SCHOOL SYSTEM\n" << RESET;
+    cout << BBLUE << "=============================================================\n" << RESET;
+    cout << BCYAN << "  Logged in as: " << BWHITE << loggedUser << "\n" << RESET;
+    cout << BBLUE << "=============================================================\n\n" << RESET;
+
+    // Menu items
+    const char* items[] = {
+        "Study Materials",
+        "Exercises",
+        "Take Test",
+        "Statistics",
+        "Homework",
+        "Classwork",
+        "Exit"
+    };
+    int count = 7;
+
+    for (int i = 0; i < count; i++)
+    {
+        if (i == selected)
+            // Selected row: arrow + highlight
+            cout << BGREEN << "  --> " << BYELLOW << items[i] << RESET << "\n";
+        else
+            cout << BWHITE << "      " << items[i] << RESET << "\n";
+    }
+
+    cout << "\n" << BBLUE << "  [UP/DOWN arrows to move | ENTER to select]\n" << RESET;
+}
+
+// ── Read a key and return a simple code ─────────────────────────────
+//   Returns: 'U' = up, 'D' = down, 'E' = enter, 'X' = other
+char readKey()
+{
+#ifdef _WIN32
+    int ch = _getch();
+    if (ch == 224 || ch == 0)   // special key prefix on Windows
+    {
+        int ch2 = _getch();
+        if (ch2 == 72) return 'U';  // Up arrow
+        if (ch2 == 80) return 'D';  // Down arrow
+    }
+    if (ch == 13) return 'E';   // Enter
+    return 'X';
+#else
+    // Linux / Mac — read ESC sequences
+    int ch = getchar();
+    if (ch == '\n' || ch == '\r') return 'E';
+    if (ch == 27)   // ESC
+    {
+        int ch2 = getchar();
+        if (ch2 == '[')
+        {
+            int ch3 = getchar();
+            if (ch3 == 'A') return 'U';
+            if (ch3 == 'B') return 'D';
+        }
+    }
+    return 'X';
+#endif
+}
+
+// ── Main ─────────────────────────────────────────────────────────────
 int main()
 {
-    int choice;
-
-    do
+    // ── 1. Login / Register before anything else ──
+    string loggedUser = showLoginPage();
+    if (loggedUser.empty())
     {
+        // User chose Exit from the login screen
         system("cls");
-        cout << BBLUE << "=============================================================\n";
-        cout << BBLUE << "|||       ||||||||  |||        |||  ||||||||  |||   ||| |||||\n";
-        cout << BBLUE << "|||       |||        |||      |||  |||        |||  |||   |||\n";
-        cout << BBLUE << "|||       |||         |||    |||   |||        ||| |||    |||\n";
-        cout << BBLUE << "|||       |||||||     |||    |||   |||||||||  ||||       |||\n";
-        cout << BBLUE << "|||       |||           ||| |||          |||  ||| |||    |||\n";
-        cout << BBLUE << "|||       |||           ||| |||          |||  |||  |||   |||\n";
-        cout << BBLUE << "||||||||  ||||||||        |||      ||||||||   |||   ||| |||||\n";
-        cout << BBLUE << "=============================================================\n";
-        cout << BGREEN << "                  ELECTRONIC SCHOOL SYSTEM   \n";
-        cout << BBLUE << "=============================================================\n\n";
-        cout << BGREEN << "  1. Study Materials\n" << RESET;
-        cout << BGREEN << "  2. Exercises\n" << RESET;
-        cout << BGREEN << "  3. Take Test\n" << RESET;
-        cout << BGREEN << "  4. Statistics\n" << RESET;
-        cout << BRED << "  5. Exit\n" << RESET;
-        cout << BYELLOW << "\n  Choice: ";
-        cin >> choice;
+        cout << BMAGENTA << "\n  Goodbye!\n\n" << RESET;
+        return 0;
+    }
 
-        if (cin.fail())
+    // ── 2. Main menu with arrow navigation ──
+    int selected = 0;
+    const int MENU_COUNT = 7;
+
+    hideCursor();
+
+    while (true)
+    {
+        drawMainMenu(selected, loggedUser);
+
+        char key = readKey();
+
+        if (key == 'U')
         {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            continue;
+            selected = (selected - 1 + MENU_COUNT) % MENU_COUNT;
         }
-
-        switch (choice)
+        else if (key == 'D')
         {
-        case 1: showStudyMaterials(); break;
-        case 2: showExercises();      break;
-        case 3: startTest();          break;
-        case 4: showStatistics();     break;
-        case 5:
-            system("cls");
-            cout << BMAGENTA <<"\n  Goodbye!\n\n";
-            break;
-        default:
-            cout << BRED <<"\n  Invalid choice! Try again.\n";
-            break;
+            selected = (selected + 1) % MENU_COUNT;
         }
+        else if (key == 'E')
+        {
+            showCursor();   // restore cursor inside sub-menus
+            switch (selected)
+            {
+            case 0: showStudyMaterials(); break;
+            case 1: showExercises();      break;
+            case 2: startTest();          break;
+            case 3: showStatistics();     break;
+            case 4: showHomework();       break;
+            case 5: showClasswork();      break;
+            case 6:
+                showCursor();
+                system("cls");
+                cout << BMAGENTA << "\n  Goodbye, " << loggedUser << "!\n\n" << RESET;
+                return 0;
+            }
+            hideCursor();   // hide again after returning from sub-menu
+        }
+    }
 
-    } while (choice != 5);
-
+    showCursor();
     return 0;
 }
