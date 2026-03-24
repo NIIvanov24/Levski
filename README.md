@@ -1,113 +1,160 @@
-#  Electronic School System  
-### C++ Console Application
+# 📘 Electronic School System (C++ Console Application)
+
+## 📖 Overview
+
+This project is a **console-based electronic school system** developed in **C++**. It simulates a simple educational platform where users can:
+
+* Study core programming concepts
+* Practice with exercises
+* Take an automated test
+* Receive grading and performance statistics
+
+The application is designed for **learning purposes**, focusing on clean structure, logic implementation, and user interaction in a console environment.
 
 ---
 
-##  Description
+## 🎯 Objectives
 
-This project represents a console-based application developed in C++, simulating the core functionality of an electronic school system. The application allows users to access learning materials, complete exercises, and take an automatically generated test with evaluation and performance statistics.
-
-The system is designed for educational purposes and demonstrates the implementation of fundamental programming concepts in a structured and interactive way.
-
----
-
-##  Project Objectives
-
-- To reinforce fundamental C++ programming concepts  
-- To develop a structured console-based application  
-- To implement testing and grading logic  
-- To create an interactive user experience  
-- To demonstrate clean and organized code design  
+* Reinforce fundamental **C++ programming concepts**
+* Build a **structured console application**
+* Implement **testing and grading systems**
+* Create an **interactive user experience**
+* Demonstrate **clean and organized code design**
 
 ---
 
-##  Core Functionalities
+## ⚙️ Features
 
-###  1. Learning Materials
-The system provides access to theoretical topics, including:
-- Variables and data types  
-- Conditional statements (`if`, `switch`)  
-- Loops (`for`, `while`)  
-- Arrays  
+### 📚 1. Learning Materials
 
----
+Covers essential programming topics:
 
-###  2. Exercises
-The application includes practice tasks such as:
-- Calculating the sum of two numbers  
-- Checking whether a number is even  
-- Finding the largest of three numbers  
+* Variables and data types
+* Conditional statements (`if`, `switch`)
+* Loops (`for`, `while`)
+* Arrays
 
 ---
 
-###  3. Automated Test
-- Multiple-choice questions (A, B, C)  
-- Randomized question selection  
-- User input for answers  
-- Automatic answer validation  
+### 🧩 2. Exercises
+
+Includes practical tasks such as:
+
+* Calculating the sum of two numbers
+* Checking if a number is even
+* Finding the largest of three numbers
 
 ---
 
-###  4. Grading and Statistics
+### 📝 3. Automated Test
+
+* Multiple-choice questions (A, B, C)
+* Randomized question selection
+* User answer input
+* Automatic validation of answers
+
+---
+
+### 📊 4. Grading & Statistics
+
 After completing the test, the system:
-- Calculates the total number of correct answers  
-- Determines the success percentage  
-- Assigns a final grade based on a six-point grading scale  
 
-| Success Rate | Grade |
-|--------------|--------|
-| ≥ 90%        | Excellent (6) |
-| 75% – 89%    | Very Good (5) |
-| 60% – 74%    | Good (4) |
+* Calculates correct answers
+* Computes success percentage
+* Assigns a final grade
+
+#### 🏆 Grading Scale
+
+| Success Rate | Grade            |
+| ------------ | ---------------- |
+| ≥ 90%        | Excellent (6)    |
+| 75% – 89%    | Very Good (5)    |
+| 60% – 74%    | Good (4)         |
 | 50% – 59%    | Satisfactory (3) |
-| < 50%        | Fail (2) |
+| < 50%        | Fail (2)         |
 
 ---
 
-##  Application Architecture
+## 🏗️ Project Structure
 
-###  `Question` Structure
-Represents a test question and includes:
-- Question text  
-- Three possible answers  
-- Correct answer  
+### 📌 Question Structure
 
----
+Each question contains:
 
-###  Main Functions
-
-#### `showMaterials()`
-Displays the available learning materials.
-
-#### `showExercises()`
-Displays the list of exercises.
-
-#### `runTest()`
-- Manages the test execution  
-- Processes user answers  
-- Calculates the score  
-
-#### `showStatistics()`
-- Computes the success percentage  
-- Determines the final grade  
-- Displays the results  
+* Question text
+* Three answer options
+* Correct answer
 
 ---
 
-###  `main()` Function
-- Implements the main menu  
-- Handles user input  
-- Ensures continuous program execution until exit  
+### 🔧 Main Functions
+
+* `showMaterials()` → Displays learning content
+* `showExercises()` → Shows available exercises
+* `runTest()` → Handles test execution and scoring
+* `showStatistics()` → Calculates and displays results
 
 ---
 
-##  How to Run
+### ▶️ `main()` Function
 
-### 1. Requirements
-- C++ compiler (e.g., `g++`)  
-- Terminal or command prompt  
+* Controls the main menu
+* Handles user input
+* Keeps the application running until exit
 
 ---
 
-### 2. Compilation
+## 🚀 How to Run
+
+### ✅ Requirements
+
+* C++ compiler (e.g., `g++`)
+* Terminal / Command Prompt
+
+### 🛠️ Compilation
+
 ```bash
+g++ main.cpp -o school_system
+```
+
+### ▶️ Run the Program
+
+```bash
+./school_system
+```
+
+---
+
+## 👥 Contributors
+
+* NIIvanov24
+* FYFilipov24
+* VAZARAKYN24
+* VHGEORGIEV24
+
+---
+
+## 📌 Notes
+
+* This project is intended for **educational use**
+* Focuses on **fundamental programming skills**
+* Can be extended with features like:
+
+  * User authentication (Login/Register)
+  * File storage for results
+  * GUI version
+
+---
+
+## ⭐ Future Improvements
+
+* Add persistent user accounts
+* Save test history
+* Expand question database
+* Improve UI/UX (possibly GUI version)
+
+---
+
+## 📄 License
+
+This project is open-source and free to use for educational purposes.
