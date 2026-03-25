@@ -37,6 +37,7 @@ vector<int>    allMaxScores;
 
 // ── Helpers ─────────────────────────────────────────────────────────
 
+// Waits for the user to press Enter.
 void pauseScreen()
 {
     cout << "\n  Press ENTER to return to the menu...";
@@ -44,7 +45,7 @@ void pauseScreen()
     cin.get();
 }
 
-// Print a standard section header
+// Prints a colored title header.
 void printHeader(const string& title, const string& color)
 {
     cout << BBLUE << "==============================\n" << RESET;
@@ -56,6 +57,8 @@ void printHeader(const string& title, const string& color)
 // ════════════════════════════════════════════════════════════════════
 //  STUDY MATERIALS
 // ════════════════════════════════════════════════════════════════════
+
+// Shows the study materials menu and topic notes.
 void showStudyMaterials()
 {
     int subChoice;
@@ -249,6 +252,8 @@ void showStudyMaterials()
 // ════════════════════════════════════════════════════════════════════
 //  EXERCISES
 // ════════════════════════════════════════════════════════════════════
+
+// Shows practice questions for each subject.
 void showExercises()
 {
     int subChoice;
@@ -387,6 +392,8 @@ void showExercises()
 // ════════════════════════════════════════════════════════════════════
 //  START TEST
 // ════════════════════════════════════════════════════════════════════
+
+// Starts the main test and saves the result.
 void startTest()
 {
     system("cls");
@@ -473,6 +480,8 @@ void startTest()
 // ════════════════════════════════════════════════════════════════════
 //  STATISTICS
 // ════════════════════════════════════════════════════════════════════
+
+// Shows saved test statistics.
 void showStatistics()
 {
     system("cls");
@@ -542,7 +551,7 @@ void showStatistics()
 //  - Saved to homework.txt
 // ════════════════════════════════════════════════════════════════════
 
-// One homework/classwork item
+// Stores one homework or classwork item.
 struct Assignment
 {
     string subject;
@@ -551,7 +560,7 @@ struct Assignment
     bool   done;
 };
 
-// ── Load assignments from a file ────────────────────────────────────
+// Loads assignments from a text file.
 vector<Assignment> loadAssignments(const string& filename)
 {
     vector<Assignment> list;
@@ -578,7 +587,7 @@ vector<Assignment> loadAssignments(const string& filename)
     return list;
 }
 
-// ── Save assignments to a file ───────────────────────────────────────
+// Saves assignments to a text file.
 void saveAssignments(const string& filename, const vector<Assignment>& list)
 {
     ofstream file(filename);
@@ -588,7 +597,7 @@ void saveAssignments(const string& filename, const vector<Assignment>& list)
     file.close();
 }
 
-// ── Generic assignment manager (used by both Homework & Classwork) ──
+// Manages homework or classwork entries.
 void manageAssignments(const string& title, const string& color,
     const string& filename)
 {
@@ -602,7 +611,7 @@ void manageAssignments(const string& title, const string& color,
         cout << color << "  " << title << "\n" << RESET;
         cout << BBLUE << "==============================\n\n" << RESET;
 
-        // ── List entries ────────────────────────────────────────────
+        // Shows all saved entries.
         if (list.empty())
             cout << BYELLOW << "  No entries yet.\n\n" << RESET;
         else
@@ -621,7 +630,7 @@ void manageAssignments(const string& title, const string& color,
             cout << "\n";
         }
 
-        // ── Sub-menu ────────────────────────────────────────────────
+        // Shows the assignment menu.
         cout << BGREEN << "  1. Add new entry\n" << RESET;
         cout << BYELLOW << "  2. Mark as done\n" << RESET;
         cout << BRED << "  3. Delete entry\n" << RESET;
@@ -630,7 +639,7 @@ void manageAssignments(const string& title, const string& color,
         cin >> choice;
         if (cin.fail()) { cin.clear(); cin.ignore(1000, '\n'); continue; }
 
-        // ── Add ─────────────────────────────────────────────────────
+        // Adds a new assignment.
         if (choice == 1)
         {
             Assignment a;
@@ -653,7 +662,7 @@ void manageAssignments(const string& title, const string& color,
             cout << BGREEN << "\n  Entry added!\n" << RESET;
             cout << "\n  Press ENTER..."; cin.get();
         }
-        // ── Mark done ───────────────────────────────────────────────
+        // Marks an assignment as done.
         else if (choice == 2)
         {
             if (list.empty()) { cout << BRED << "\n  Nothing to mark.\n" << RESET; cin.ignore(); cin.get(); continue; }
@@ -667,7 +676,7 @@ void manageAssignments(const string& title, const string& color,
             }
             cout << "\n  Press ENTER..."; cin.ignore(); cin.get();
         }
-        // ── Delete ──────────────────────────────────────────────────
+        // Deletes an assignment.
         else if (choice == 3)
         {
             if (list.empty()) { cout << BRED << "\n  Nothing to delete.\n" << RESET; cin.ignore(); cin.get(); continue; }
@@ -685,12 +694,13 @@ void manageAssignments(const string& title, const string& color,
     } while (choice != 4);
 }
 
-// ── Public entry points called from Main.cpp ────────────────────────
+// Opens the homework manager.
 void showHomework()
 {
     manageAssignments("HOMEWORK", BMAGENTA, "homework.txt");
 }
 
+// Opens the classwork manager.
 void showClasswork()
 {
     manageAssignments("CLASSWORK", BCYAN, "classwork.txt");
